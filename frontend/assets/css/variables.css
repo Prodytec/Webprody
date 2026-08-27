@@ -1,0 +1,74 @@
+:root {
+  /* Colors - base (tema claro, igual que prodytecweb.com) */
+  --color-bg: #ffffff;
+  --color-bg-elevated: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #f2f2f4;
+  --color-border: #e7e7ea;
+  --color-border-strong: #d7d7dd;
+
+  /* Colors - text */
+  --color-text: #22262f;
+  --color-text-muted: #5b6170;
+  --color-text-faint: #8a8f9c;
+
+  /* Colors - brand (rojo institucional de Prodytec) */
+  --color-primary: #c52b27;
+  --color-primary-strong: #8f1f1c;
+  --color-primary-light: #dd4961;
+  --color-accent: #c52b27;
+
+  --gradient-brand: linear-gradient(135deg, #dd4961 0%, #c52b27 55%, #8f1f1c 100%);
+  --gradient-radial-hero: radial-gradient(60% 60% at 50% 0%, rgba(197, 43, 39, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
+  --gradient-card: linear-gradient(160deg, #ffffff 0%, #fbfbfc 100%);
+
+  /* Status */
+  --color-success: #3f8f14;
+  --color-danger: #c52b27;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Sora', var(--font-sans);
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.25rem;
+  --fs-3xl: 3rem;
+  --fs-4xl: 3.75rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+
+  /* Layout */
+  --container-max: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.18s var(--ease-out);
+  --transition-base: 0.32s var(--ease-out);
+  --transition-slow: 0.6s var(--ease-out);
+
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(34, 38, 47, 0.06);
+  --shadow-md: 0 12px 30px rgba(34, 38, 47, 0.1);
+  --shadow-glow: 0 0 0 1px rgba(197, 43, 39, 0.2), 0 12px 32px rgba(197, 43, 39, 0.22);
+
+  --header-height: 76px;
+}

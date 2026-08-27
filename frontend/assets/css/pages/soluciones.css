@@ -1,0 +1,4 @@
+/* Page-specific tweaks for Soluciones (shared layout lives in layout.css) */
+.solution-card .solution-head {
+  align-items: flex-start;
+}

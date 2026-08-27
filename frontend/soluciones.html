@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soluciones | Prodytec</title>
+  <meta name="description" content="Conocé la suite Etherius: FULLVENDOR, e-Commerce, Contabilidad, Presupuestos, Textil, Fotocopiadoras, Motos y más soluciones de gestión de Prodytec." />
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/variables.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/layout.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/pages/soluciones.css" />
+</head>
+<body data-page="soluciones">
+  <div class="grain-overlay"></div>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Inicio</a> / Soluciones</div>
+        <span class="eyebrow">Suite Etherius</span>
+        <h1 class="page-title">Un producto por cada necesidad de tu negocio</h1>
+        <p class="page-lead">
+          Etherius es la plataforma sobre la que construimos todas nuestras soluciones. Elegí el módulo que
+          tu empresa necesita hoy y sumá el resto cuando lo requieras: todo funciona sobre la misma base de datos.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="filter-pills" data-filter-group=".solution-card">
+          <button class="filter-pill is-active" data-filter="all">Todas</button>
+          <button class="filter-pill" data-filter="gestion">Gestión comercial</button>
+          <button class="filter-pill" data-filter="ecommerce">e-Commerce</button>
+          <button class="filter-pill" data-filter="finanzas">Finanzas</button>
+          <button class="filter-pill" data-filter="industria">Industrias específicas</button>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="solution-card reveal" id="fullvendor" data-category="gestion">
+            <div class="solution-head">
+              <div class="card-icon" style="margin-bottom: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v4H3zM3 10h18v11H3z"/></svg>
+              </div>
+              <div>
+                <span class="tag">Gestión comercial</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0;">FULLVENDOR</h3>
+              </div>
+            </div>
+            <div class="solution-body">
+              <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
+                El corazón de la operación: ventas, stock, facturación y cuenta corriente en un solo sistema.
+              </p>
+              <ul class="feature-list">
+                <li>Facturación electrónica integrada con AFIP</li>
+                <li>Control de stock multi-depósito en tiempo real</li>
+                <li>Fuerza de ventas con listas de precios y comisiones</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="solution-card reveal" id="ecommerce" data-category="ecommerce">
+            <div class="solution-head">
+              <div class="card-icon" style="margin-bottom: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+              </div>
+              <div>
+                <span class="tag">e-Commerce</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0;">Etherius e-Commerce</h3>
+              </div>
+            </div>
+            <div class="solution-body">
+              <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
+                Tu tienda online sincronizada en tiempo real con el stock y las condiciones comerciales de tu ERP.
+              </p>
+              <ul class="feature-list">
+                <li>Catálogo y precios sincronizados automáticamente</li>
+                <li>Checkout con medios de pago locales</li>
+                <li>Pedidos que impactan directo en FULLVENDOR</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="solution-card reveal" id="contabilidad" data-category="finanzas">
+            <div class="solution-head">
+              <div class="card-icon" style="margin-bottom: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <span class="tag">Finanzas</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0;">Etherius Contabilidad</h3>
+              </div>
+            </div>
+            <div class="solution-body">
+              <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
+                Libros contables, IVA y balances alimentados automáticamente por la operación diaria.
+              </p>
+              <ul class="feature-list">
+                <li>Libro IVA compras y ventas automático</li>
+                <li>Conciliación bancaria integrada</li>
+                <li>Exportación para estudios contables externos</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="solution-card reveal" data-category="gestion">
+            <div class="solution-head">
+              <div class="card-icon" style="margin-bottom: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2ZM12 18h.01"/></svg>
+              </div>
+              <div>
+                <span class="tag">Movilidad</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0;">Mi Etherius</h3>
+              </div>
+            </div>
+            <div class="solution-body">
+              <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
+                El panel de control de tu negocio desde el celular, para tomar decisiones estés donde estés.
+              </p>
+              <ul class="feature-list">
+                <li>Indicadores de ventas y cobranzas en vivo</li>
+                <li>Alertas de stock crítico</li>
+                <li>Acceso para dueños y gerentes</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="solution-card reveal" data-category="gestion">
+            <div class="solution-head">
+              <div class="card-icon" style="margin-bottom: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v18M4 8h5M4 16h5M13 3h7v18h-7z"/></svg>
+              </div>
+              <div>
+                <span class="tag">Ventas</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0;">Presupuestos</h3>
+              </div>
+            </div>
+            <div class="solution-body">
+              <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
+                Armá cotizaciones profesionales en minutos y hacé seguimiento hasta cerrar la venta.
+              </p>
+              <ul class="feature-list">
+                <li>Plantillas de presupuesto personalizables</li>
+                <li>Conversión directa a factura o pedido</li>
+                <li>Seguimiento de estado por cliente</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="solution-card reveal" id="textil" data-category="industria">
+            <div class="solution-head">
+              <div class="card-icon" style="margin-bottom: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 8 4-5h8l4 5-3 2v9H7v-9Z"/></svg>
+              </div>
+              <div>
+                <span class="tag">Industria textil</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0;">Etherius Textil</h3>
+              </div>
+            </div>
+            <div class="solution-body">
+              <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
+                Pensado para la dinámica de la indumentaria: talles, colores y colecciones bajo control.
+              </p>
+              <ul class="feature-list">
+                <li>Matriz de talle y color por artículo</li>
+                <li>Gestión de colecciones y temporadas</li>
+                <li>Reposición automática por local</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="solution-card reveal" data-category="industria">
+            <div class="solution-head">
+              <div class="card-icon" style="margin-bottom: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18h12M6 14h12M6 10h8M4 4h16v16H4z"/></svg>
+              </div>
+              <div>
+                <span class="tag">Servicio técnico</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0;">Etherius Fotocopiadoras</h3>
+              </div>
+            </div>
+            <div class="solution-body">
+              <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
+                Para empresas que venden o alquilan fotocopiadoras e impresoras multifunción.
+              </p>
+              <ul class="feature-list">
+                <li>Control de contadores y consumibles</li>
+                <li>Órdenes de servicio técnico</li>
+                <li>Facturación de alquileres y consumo</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="solution-card reveal" data-category="industria">
+            <div class="solution-head">
+              <div class="card-icon" style="margin-bottom: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 18h4l2-9h3M9 18 7 9H4"/></svg>
+              </div>
+              <div>
+                <span class="tag">Concesionarias</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 0;">Etherius Motos</h3>
+              </div>
+            </div>
+            <div class="solution-body">
+              <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
+                Orientado a concesionarias y comercios de motos y repuestos.
+              </p>
+              <ul class="feature-list">
+                <li>Gestión de patentamiento y documentación</li>
+                <li>Catálogo de repuestos por modelo</li>
+                <li>Taller y órdenes de reparación</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>¿No sabés cuál módulo necesitás?</h2>
+          <p>Contanos cómo trabaja tu empresa hoy y te recomendamos la combinación ideal de productos Etherius.</p>
+          <a href="/contacto.html" class="btn btn-primary btn-lg">Hablar con un especialista</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
