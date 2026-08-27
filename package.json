@@ -1,0 +1,8 @@
+{
+  "name": "prodytec-web",
+  "private": true,
+  "description": "Configuración de despliegue en Vercel: sitio estático (frontend/) + función serverless de contacto (api/contact.js)",
+  "dependencies": {
+    "nodemailer": "^9.0.3"
+  }
+}
