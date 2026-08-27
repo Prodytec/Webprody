@@ -128,6 +128,18 @@
   font-size: var(--fs-sm);
 }
 
+/* Solution preview card (homepage "Suite Etherius" grid) */
+.solution-preview-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.solution-preview-head .card-icon {
+  flex-shrink: 0;
+}
+
 /* Badge / tag */
 .tag {
   display: inline-flex;
@@ -253,12 +265,20 @@ select.form-control {
   padding-right: 2.5rem;
 }
 
-/* Solution / product card with tabs */
+/* Solution / product card (links out to its own product page) */
 .solution-card {
+  display: block;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   overflow: hidden;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.solution-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
 }
 
 .solution-card .solution-head {
@@ -271,25 +291,6 @@ select.form-control {
 
 .solution-card .solution-body {
   padding: var(--space-6);
-}
-
-.solution-card ul.feature-list li {
-  position: relative;
-  padding-left: var(--space-6);
-  color: var(--color-text-muted);
-  font-size: var(--fs-sm);
-  margin-bottom: var(--space-3);
-}
-
-.solution-card ul.feature-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-  background: var(--gradient-brand);
 }
 
 /* Filter pills for soluciones page */
@@ -432,6 +433,39 @@ select.form-control {
   font-size: var(--fs-sm);
 }
 
+/* CTA box (gradient call-to-action panel, used across several pages) */
+.cta-box {
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--gradient-brand);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box h2 {
+  font-size: var(--fs-2xl);
+  color: #fff;
+  max-width: 30ch;
+  margin-inline: auto;
+}
+
+.cta-box p {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 50ch;
+  margin: var(--space-4) auto var(--space-8);
+}
+
+.cta-box .btn-primary {
+  background: #fff;
+  color: var(--color-primary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cta-box .btn-primary:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
 /* Back-to-top */
 .back-to-top {
   position: fixed;
@@ -464,4 +498,46 @@ select.form-control {
 .back-to-top svg {
   width: 20px;
   height: 20px;
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  left: var(--space-6);
+  bottom: var(--space-6);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  z-index: 90;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    left: var(--space-4);
+    bottom: var(--space-4);
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-float svg {
+    width: 24px;
+    height: 24px;
+  }
 }

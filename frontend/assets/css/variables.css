@@ -19,7 +19,6 @@
   --color-accent: #c52b27;
 
   --gradient-brand: linear-gradient(135deg, #dd4961 0%, #c52b27 55%, #8f1f1c 100%);
-  --gradient-radial-hero: radial-gradient(60% 60% at 50% 0%, rgba(197, 43, 39, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
   --gradient-card: linear-gradient(160deg, #ffffff 0%, #fbfbfc 100%);
 
   /* Status */
