@@ -174,13 +174,15 @@
   z-index: 110;
 }
 
-.nav-item.has-dropdown:hover .nav-dropdown,
-.nav-item.has-dropdown:focus-within .nav-dropdown,
-.nav-item.has-dropdown.is-open .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translate(-50%, 0);
+@media (min-width: 901px) {
+  .nav-item.has-dropdown:hover .nav-dropdown,
+  .nav-item.has-dropdown:focus-within .nav-dropdown,
+  .nav-item.has-dropdown.is-open .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
 }
 
 .nav-dropdown a {
@@ -195,7 +197,47 @@
   color: var(--color-text);
 }
 
+.nav-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+@media (min-width: 901px) {
+  .nav-item-head {
+    display: contents;
+  }
+}
+
+.nav-item-toggle {
+  display: none;
+}
+
 @media (max-width: 900px) {
+  .nav-item-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+  }
+
+  .nav-item-toggle svg {
+    width: 18px;
+    height: 18px;
+    transition: transform var(--transition-fast);
+  }
+
+  .nav-item.has-dropdown.is-open .nav-item-toggle svg {
+    transform: rotate(180deg);
+  }
+
   .nav-dropdown {
     position: static;
     transform: none;
@@ -205,9 +247,18 @@
     box-shadow: none;
     border: none;
     background: transparent;
-    padding: var(--space-1) 0 0 var(--space-4);
-    margin-top: var(--space-2);
+    padding-left: var(--space-4);
+    margin-top: 0;
     border-left: 2px solid var(--color-border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+  }
+
+  .nav-item.has-dropdown.is-open .nav-dropdown {
+    max-height: 480px;
+    padding-top: var(--space-1);
+    margin-top: var(--space-2);
   }
 }
 
@@ -257,7 +308,7 @@
 
   .nav-links {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--space-5);
   }
 

@@ -194,51 +194,51 @@ body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-toggle {
 }
 
 @keyframes hero-dot-travel-1 {
-  0% { cx: 50; cy: 50; opacity: 0; }
+  0% { transform: translate(0, 0); opacity: 0; }
   15%, 85% { opacity: 1; }
-  100% { cx: 28.2; cy: 18.9; opacity: 0; }
+  100% { transform: translate(-21.8px, -31.1px); opacity: 0; }
 }
 
 @keyframes hero-dot-travel-2 {
-  0% { cx: 50; cy: 50; opacity: 0; }
+  0% { transform: translate(0, 0); opacity: 0; }
   15%, 85% { opacity: 1; }
-  100% { cx: 50; cy: 12; opacity: 0; }
+  100% { transform: translate(0, -38px); opacity: 0; }
 }
 
 @keyframes hero-dot-travel-3 {
-  0% { cx: 50; cy: 50; opacity: 0; }
+  0% { transform: translate(0, 0); opacity: 0; }
   15%, 85% { opacity: 1; }
-  100% { cx: 71.8; cy: 18.9; opacity: 0; }
+  100% { transform: translate(21.8px, -31.1px); opacity: 0; }
 }
 
 @keyframes hero-dot-travel-4 {
-  0% { cx: 50; cy: 50; opacity: 0; }
+  0% { transform: translate(0, 0); opacity: 0; }
   15%, 85% { opacity: 1; }
-  100% { cx: 88; cy: 50; opacity: 0; }
+  100% { transform: translate(38px, 0); opacity: 0; }
 }
 
 @keyframes hero-dot-travel-5 {
-  0% { cx: 50; cy: 50; opacity: 0; }
+  0% { transform: translate(0, 0); opacity: 0; }
   15%, 85% { opacity: 1; }
-  100% { cx: 76.9; cy: 76.9; opacity: 0; }
+  100% { transform: translate(26.9px, 26.9px); opacity: 0; }
 }
 
 @keyframes hero-dot-travel-6 {
-  0% { cx: 50; cy: 50; opacity: 0; }
+  0% { transform: translate(0, 0); opacity: 0; }
   15%, 85% { opacity: 1; }
-  100% { cx: 50; cy: 88; opacity: 0; }
+  100% { transform: translate(0, 38px); opacity: 0; }
 }
 
 @keyframes hero-dot-travel-7 {
-  0% { cx: 50; cy: 50; opacity: 0; }
+  0% { transform: translate(0, 0); opacity: 0; }
   15%, 85% { opacity: 1; }
-  100% { cx: 23.1; cy: 76.9; opacity: 0; }
+  100% { transform: translate(-26.9px, 26.9px); opacity: 0; }
 }
 
 @keyframes hero-dot-travel-8 {
-  0% { cx: 50; cy: 50; opacity: 0; }
+  0% { transform: translate(0, 0); opacity: 0; }
   15%, 85% { opacity: 1; }
-  100% { cx: 12; cy: 50; opacity: 0; }
+  100% { transform: translate(-38px, 0); opacity: 0; }
 }
 
 .hero-diagram-lines circle:nth-of-type(2) { animation-name: hero-dot-travel-1; animation-delay: 0s; }
