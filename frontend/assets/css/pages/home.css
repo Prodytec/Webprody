@@ -178,7 +178,95 @@ body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-toggle {
   stroke: var(--color-hero-border);
   stroke-width: 0.3;
   stroke-dasharray: 0.6 1.8;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-ring-rotate 60s linear infinite;
 }
+
+@keyframes hero-ring-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.hero-diagram-lines circle:not(.hero-diagram-ring) {
+  animation-duration: 2.6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes hero-dot-travel-1 {
+  0% { cx: 50; cy: 50; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { cx: 28.2; cy: 18.9; opacity: 0; }
+}
+
+@keyframes hero-dot-travel-2 {
+  0% { cx: 50; cy: 50; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { cx: 50; cy: 12; opacity: 0; }
+}
+
+@keyframes hero-dot-travel-3 {
+  0% { cx: 50; cy: 50; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { cx: 71.8; cy: 18.9; opacity: 0; }
+}
+
+@keyframes hero-dot-travel-4 {
+  0% { cx: 50; cy: 50; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { cx: 88; cy: 50; opacity: 0; }
+}
+
+@keyframes hero-dot-travel-5 {
+  0% { cx: 50; cy: 50; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { cx: 76.9; cy: 76.9; opacity: 0; }
+}
+
+@keyframes hero-dot-travel-6 {
+  0% { cx: 50; cy: 50; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { cx: 50; cy: 88; opacity: 0; }
+}
+
+@keyframes hero-dot-travel-7 {
+  0% { cx: 50; cy: 50; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { cx: 23.1; cy: 76.9; opacity: 0; }
+}
+
+@keyframes hero-dot-travel-8 {
+  0% { cx: 50; cy: 50; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { cx: 12; cy: 50; opacity: 0; }
+}
+
+.hero-diagram-lines circle:nth-of-type(2) { animation-name: hero-dot-travel-1; animation-delay: 0s; }
+.hero-diagram-lines circle:nth-of-type(3) { animation-name: hero-dot-travel-2; animation-delay: 0.3s; }
+.hero-diagram-lines circle:nth-of-type(4) { animation-name: hero-dot-travel-3; animation-delay: 0.6s; }
+.hero-diagram-lines circle:nth-of-type(5) { animation-name: hero-dot-travel-4; animation-delay: 0.9s; }
+.hero-diagram-lines circle:nth-of-type(6) { animation-name: hero-dot-travel-5; animation-delay: 1.2s; }
+.hero-diagram-lines circle:nth-of-type(7) { animation-name: hero-dot-travel-6; animation-delay: 1.5s; }
+.hero-diagram-lines circle:nth-of-type(8) { animation-name: hero-dot-travel-7; animation-delay: 1.8s; }
+.hero-diagram-lines circle:nth-of-type(9) { animation-name: hero-dot-travel-8; animation-delay: 2.1s; }
+
+@keyframes hero-node-float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-7px); }
+}
+
+.hero-node:not(.hero-node-hub) {
+  animation: hero-node-float 5s ease-in-out infinite;
+}
+
+.hero-node:nth-of-type(1) { animation-delay: 0s; }
+.hero-node:nth-of-type(2) { animation-delay: 0.5s; }
+.hero-node:nth-of-type(3) { animation-delay: 1s; }
+.hero-node:nth-of-type(4) { animation-delay: 1.5s; }
+.hero-node:nth-of-type(5) { animation-delay: 2s; }
+.hero-node:nth-of-type(6) { animation-delay: 0.8s; }
+.hero-node:nth-of-type(7) { animation-delay: 1.3s; }
+.hero-node:nth-of-type(8) { animation-delay: 1.8s; }
 
 .hero-node {
   position: absolute;
@@ -232,6 +320,12 @@ body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-toggle {
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
+  animation: hero-hub-pulse 3.5s ease-in-out infinite;
+}
+
+@keyframes hero-hub-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 43, 39, 0.18); }
+  50% { box-shadow: 0 0 32px 6px rgba(197, 43, 39, 0.2); }
 }
 
 .hero-hub-mark {
