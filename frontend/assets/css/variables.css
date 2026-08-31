@@ -1,25 +1,32 @@
 :root {
-  /* Colors - base (tema claro, igual que prodytecweb.com) */
+  /* Colors - base (tema claro, alto contraste blanco/gris/negro) */
   --color-bg: #ffffff;
-  --color-bg-elevated: #f7f7f8;
+  --color-bg-elevated: #f6f6f7;
   --color-surface: #ffffff;
-  --color-surface-2: #f2f2f4;
-  --color-border: #e7e7ea;
-  --color-border-strong: #d7d7dd;
+  --color-surface-2: #efeff1;
+  --color-border: #e2e2e6;
+  --color-border-strong: #c9c9d0;
 
   /* Colors - text */
-  --color-text: #22262f;
-  --color-text-muted: #5b6170;
-  --color-text-faint: #8a8f9c;
+  --color-text: #15171c;
+  --color-text-muted: #52565f;
+  --color-text-faint: #83868f;
 
-  /* Colors - brand (rojo institucional de Prodytec) */
+  /* Colors - brand (rojo institucional de Prodytec, usado como acento puntual) */
   --color-primary: #c52b27;
   --color-primary-strong: #8f1f1c;
   --color-primary-light: #dd4961;
   --color-accent: #c52b27;
 
-  --gradient-brand: linear-gradient(135deg, #dd4961 0%, #c52b27 55%, #8f1f1c 100%);
+  --gradient-brand: linear-gradient(135deg, #d13531 0%, #c52b27 100%);
   --gradient-card: linear-gradient(160deg, #ffffff 0%, #fbfbfc 100%);
+
+  /* Colors - hero oscuro (tema propio de la sección superior, resto del sitio queda claro) */
+  --color-hero-bg: #0b0d12;
+  --color-hero-surface: #14161c;
+  --color-hero-border: rgba(255, 255, 255, 0.12);
+  --color-hero-text: #ffffff;
+  --color-hero-text-muted: rgba(255, 255, 255, 0.62);
 
   /* Status */
   --color-success: #3f8f14;
@@ -65,9 +72,9 @@
   --transition-slow: 0.6s var(--ease-out);
 
   /* Shadow */
-  --shadow-sm: 0 2px 8px rgba(34, 38, 47, 0.06);
-  --shadow-md: 0 12px 30px rgba(34, 38, 47, 0.1);
-  --shadow-glow: 0 0 0 1px rgba(197, 43, 39, 0.2), 0 12px 32px rgba(197, 43, 39, 0.22);
+  --shadow-sm: 0 2px 8px rgba(21, 23, 28, 0.06);
+  --shadow-md: 0 12px 30px rgba(21, 23, 28, 0.1);
+  --shadow-glow: 0 6px 20px rgba(197, 43, 39, 0.22);
 
   --header-height: 76px;
 }

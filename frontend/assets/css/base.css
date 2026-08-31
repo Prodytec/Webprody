@@ -66,11 +66,10 @@ p {
   color: #fff;
 }
 
-/* Background texture shared across pages */
+/* Background texture shared across pages - sutil, sin glow rojo */
 body {
   background-image:
-    radial-gradient(50% 40% at 15% 0%, rgba(197, 43, 39, 0.06) 0%, rgba(255, 255, 255, 0) 60%),
-    radial-gradient(45% 35% at 100% 10%, rgba(197, 43, 39, 0.04) 0%, rgba(255, 255, 255, 0) 60%);
+    radial-gradient(40% 30% at 15% 0%, rgba(21, 23, 28, 0.03) 0%, rgba(255, 255, 255, 0) 60%);
   background-repeat: no-repeat;
 }
 
