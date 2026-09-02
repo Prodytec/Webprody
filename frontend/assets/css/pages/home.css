@@ -80,9 +80,22 @@
   color: var(--color-primary-light);
 }
 
+/* Tamaño fluido para que el título entre siempre en 2 líneas (rango por rango, medido contra el ancho real de .hero-copy) */
+@media (min-width: 981px) {
+  .hero-copy h1 {
+    font-size: clamp(2.1rem, calc(4.1vw - 6px), 2.65rem);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 980px) {
+  .hero-copy h1 {
+    font-size: clamp(2.75rem, calc(7.9vw - 6.5px), 3.75rem);
+  }
+}
+
 @media (max-width: 640px) {
   .hero-copy h1 {
-    font-size: var(--fs-3xl);
+    font-size: clamp(1.4rem, calc(8vw - 5px), 2.85rem);
   }
 }
 
@@ -127,12 +140,15 @@
 
 /* Header transparente sobre el hero oscuro; se oscurece al hacer scroll */
 body[data-page="inicio"] .site-header:not(.is-scrolled) .brand span,
-body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-desktop:not(.is-open) .nav-links > li > a {
+body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-desktop:not(.is-open) .nav-links > li > a,
+body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-desktop:not(.is-open) .nav-links .nav-item-head > a {
   color: rgba(255, 255, 255, 0.85);
 }
 
 body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-desktop:not(.is-open) .nav-links > li > a:hover,
-body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-desktop:not(.is-open) .nav-links > li > a.is-active {
+body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-desktop:not(.is-open) .nav-links > li > a.is-active,
+body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-desktop:not(.is-open) .nav-links .nav-item-head > a:hover,
+body[data-page="inicio"] .site-header:not(.is-scrolled) .nav-desktop:not(.is-open) .nav-links .nav-item-head > a.is-active {
   color: #fff;
 }
 
