@@ -2,3 +2,125 @@
 .solution-card .solution-head {
   align-items: flex-start;
 }
+
+/* Hero split (title/lead next to product image) */
+.hero-split {
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-split .problem-visual.has-image {
+    margin-top: var(--space-6);
+  }
+}
+
+/* "El problema" split block (product detail pages) */
+.problem-visual {
+  min-height: 280px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--gradient-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-visual.has-image {
+  min-height: 0;
+  padding: var(--space-10) var(--space-8);
+}
+
+.problem-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(55% 55% at 50% 45%, rgba(197, 43, 39, 0.1), transparent 70%);
+}
+
+.problem-visual-icon {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow);
+}
+
+.problem-visual-icon svg {
+  width: 56px;
+  height: 56px;
+}
+
+.problem-visual img {
+  position: relative;
+  width: 68%;
+  max-width: 280px;
+  height: auto;
+  filter: drop-shadow(0 12px 26px rgba(21, 23, 28, 0.16));
+}
+
+.problem-visual-tag {
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .problem-visual {
+    min-height: 200px;
+  }
+
+  .problem-visual.has-image {
+    min-height: 0;
+  }
+}
+
+/* "Resultado" banner (closes out the story before the CTA) */
+.result-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.result-banner-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(197, 43, 39, 0.1);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.result-banner-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.result-banner p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+@media (max-width: 640px) {
+  .result-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
