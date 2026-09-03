@@ -42,24 +42,6 @@
   background: radial-gradient(55% 55% at 50% 45%, rgba(197, 43, 39, 0.1), transparent 70%);
 }
 
-.problem-visual-icon {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: var(--gradient-brand);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-glow);
-}
-
-.problem-visual-icon svg {
-  width: 56px;
-  height: 56px;
-}
-
 .problem-visual img {
   position: relative;
   width: 68%;

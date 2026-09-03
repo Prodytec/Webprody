@@ -118,6 +118,12 @@
   height: 26px;
 }
 
+.card-icon img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
 .card h3 {
   font-size: var(--fs-md);
   margin-bottom: var(--space-3);
