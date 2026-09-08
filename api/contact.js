@@ -10,6 +10,7 @@ function readEnv() {
       port: Number(process.env.SMTP_PORT) || 587,
       user: process.env.SMTP_USER || '',
       pass: process.env.SMTP_PASS || '',
+      from: process.env.SMTP_FROM || process.env.SMTP_USER || '',
     },
   };
 }
@@ -58,7 +59,7 @@ module.exports = async function handler(req, res) {
     });
 
     await transporter.sendMail({
-      from: `"Sitio Prodytec" <${env.smtp.user}>`,
+      from: `"Sitio Prodytec" <${env.smtp.from}>`,
       to: env.contactToEmail,
       replyTo: email,
       subject: `Nueva consulta de ${company}`,

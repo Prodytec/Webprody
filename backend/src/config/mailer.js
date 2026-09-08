@@ -21,7 +21,7 @@ async function sendContactNotification({ name, company, email, phone, users, mes
   if (!transporter) return { sent: false, reason: 'smtp-not-configured' };
 
   await transporter.sendMail({
-    from: `"Sitio Prodytec" <${env.smtp.user}>`,
+    from: `"Sitio Prodytec" <${env.smtp.from}>`,
     to: env.contactToEmail,
     replyTo: email,
     subject: `Nueva consulta de ${company}`,
