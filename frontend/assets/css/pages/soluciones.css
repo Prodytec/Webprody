@@ -46,8 +46,24 @@
   position: relative;
   width: 68%;
   max-width: 280px;
+  max-height: 140px;
   height: auto;
   filter: drop-shadow(0 12px 26px rgba(21, 23, 28, 0.16));
+}
+
+/* Solid-mark logos (filled icon shapes, not thin wordmarks) are taller than
+   they are wide. Combining a fixed width with max-height (as above) makes
+   browsers stretch the image instead of preserving its ratio, so these use
+   width/height: auto with both max- bounds, which is the combination that
+   actually scales proportionally to fit inside the box. Also uses a
+   lighter, tighter shadow -- the default blur reads as a gray halo on a
+   filled shape. */
+.problem-visual img.mark-logo {
+  width: auto;
+  height: auto;
+  max-width: min(68%, 190px);
+  max-height: 190px;
+  filter: drop-shadow(0 6px 10px rgba(21, 23, 28, 0.14));
 }
 
 .problem-visual-tag {
