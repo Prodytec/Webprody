@@ -52,3 +52,19 @@ el formulario sigue funcionando y las consultas quedan guardadas localmente.
 
 Los textos institucionales (historia, valores, productos Etherius, datos de contacto) se basaron en el
 contenido público de prodytecweb.com al 2026-07-30, reescrito y reorganizado para el nuevo diseño.
+
+## Admin del blog
+
+El blog se administra desde `/admin.html` (no está enlazado en el menú; la página tiene `noindex`).
+Permite crear, editar y eliminar artículos, con imagen de portada opcional.
+
+- **Base de datos**: MySQL/MariaDB. Crear una base y un usuario (Webmin → Servers → MariaDB/MySQL) y completar
+  `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` en `backend/.env`. La tabla `posts` se crea sola al primer uso
+  y se cargan los dos artículos originales (`backend/src/db/seed.js`).
+- **Imágenes**: se guardan en `backend/uploads/` (servidas en `/uploads`). Incluir esa carpeta en los backups.
+- **Login**: usuario y hash de contraseña por defecto en `backend/src/config/auth.js`; se pueden reemplazar con
+  `ADMIN_USER` / `ADMIN_PASS` en el `.env`. Definir también `SESSION_SECRET` (texto largo aleatorio) para que las
+  sesiones sobrevivan a reinicios.
+- **Detrás de Nginx/Apache**: permitir cuerpos de hasta 6 MB (`client_max_body_size 6m;` en Nginx), si no la subida
+  de imágenes falla con 413.
+- `api/contact.js` es la función serverless de Vercel del formulario de contacto y no se usa en este servidor.

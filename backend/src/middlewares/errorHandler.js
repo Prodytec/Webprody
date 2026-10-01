@@ -6,8 +6,8 @@ function notFoundHandler(req, res) {
 
 // eslint-disable-next-line no-unused-vars
 function errorHandler(err, req, res, next) {
-  logger.error(err);
   const status = err.status || 500;
+  if (status >= 500) logger.error(err);
   res.status(status).json({ message: err.publicMessage || 'Ocurrió un error inesperado en el servidor.' });
 }
 

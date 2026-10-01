@@ -1,1 +1,15 @@
 /* Page-specific tweaks for Blog listing (shared layout lives in layout.css) */
+
+.blog-empty {
+  grid-column: 1 / -1;
+  color: var(--color-text-muted);
+}
+
+.blog-thumb.has-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.blog-thumb.has-image::after {
+  display: none;
+}

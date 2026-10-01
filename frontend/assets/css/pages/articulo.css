@@ -71,3 +71,12 @@
   padding-top: var(--space-8);
   border-top: 1px solid var(--color-border);
 }
+
+.article-cover.has-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.article-cover.has-image::after {
+  display: none;
+}

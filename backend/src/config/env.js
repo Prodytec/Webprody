@@ -12,6 +12,19 @@ const env = {
     pass: process.env.SMTP_PASS || '',
     from: process.env.SMTP_FROM || process.env.SMTP_USER || '',
   },
+  db: {
+    host: process.env.DB_HOST || 'localhost',
+    port: Number(process.env.DB_PORT) || 3306,
+    user: process.env.DB_USER || '',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || '',
+  },
+  admin: {
+    // Si no se definen, se usan las credenciales por defecto de config/auth.js.
+    user: process.env.ADMIN_USER || '',
+    pass: process.env.ADMIN_PASS || '',
+    sessionSecret: process.env.SESSION_SECRET || '',
+  },
 };
 
 module.exports = env;

@@ -1,0 +1,140 @@
+.admin {
+  padding-top: calc(var(--header-height) + var(--space-8));
+  padding-bottom: var(--space-12);
+  min-height: 80vh;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.admin-title {
+  font-size: var(--fs-xl);
+}
+
+.admin-sub {
+  color: var(--color-text-muted);
+  margin: var(--space-2) 0 var(--space-5);
+}
+
+.admin-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.admin-login {
+  max-width: 420px;
+  margin: var(--space-8) auto 0;
+}
+
+.admin-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.admin-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.admin-row {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: var(--space-5);
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--space-4);
+}
+
+.admin-row-thumb {
+  width: 96px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-brand) center / cover;
+}
+
+.admin-row h3 {
+  font-size: var(--fs-base);
+  margin-bottom: var(--space-1);
+}
+
+.admin-row small {
+  color: var(--color-text-faint);
+}
+
+.admin-row-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.admin-row-actions .btn {
+  padding: 0.5rem 1rem;
+  font-size: var(--fs-sm);
+}
+
+.btn-danger {
+  color: var(--color-danger);
+  border: 1px solid rgba(197, 43, 39, 0.35);
+  background: transparent;
+}
+
+.btn-danger:hover {
+  background: rgba(197, 43, 39, 0.08);
+}
+
+.admin-body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.admin-image {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.admin-image img {
+  max-width: 220px;
+  max-height: 130px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.admin-preview summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.admin-preview .article-body {
+  margin-top: var(--space-5);
+  max-width: none;
+}
+
+.form-note code {
+  background: var(--color-surface-2);
+  padding: 0 0.3em;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .admin-row {
+    grid-template-columns: 1fr;
+  }
+}

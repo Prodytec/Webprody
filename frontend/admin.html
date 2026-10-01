@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin del blog | Prodytec</title>
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/variables.css" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/layout.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/pages/articulo.css" />
+  <link rel="stylesheet" href="/assets/css/pages/admin.css" />
+</head>
+<body data-page="admin">
+  <div id="header-placeholder"></div>
+
+  <main class="admin">
+    <div class="container">
+
+      <!-- Login -->
+      <section id="loginView" class="admin-card admin-login" hidden>
+        <h1 class="admin-title">Ingresar al admin</h1>
+        <p class="admin-sub">Acceso solo para el equipo de Prodytec.</p>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginUser">Usuario</label>
+            <input class="form-control" id="loginUser" autocomplete="username" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPass">Contraseña</label>
+            <input class="form-control" id="loginPass" type="password" autocomplete="current-password" required />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Ingresar</button>
+          <div class="form-feedback error" id="loginError"></div>
+        </form>
+      </section>
+
+      <!-- Listado -->
+      <section id="listView" hidden>
+        <div class="admin-bar">
+          <h1 class="admin-title">Artículos del blog</h1>
+          <div class="admin-actions">
+            <button class="btn btn-primary" id="newBtn" type="button">+ Nuevo artículo</button>
+            <button class="btn btn-ghost" id="logoutBtn" type="button">Cerrar sesión</button>
+          </div>
+        </div>
+        <div class="form-feedback" id="listFeedback"></div>
+        <div id="postList" class="admin-list"></div>
+      </section>
+
+      <!-- Editor -->
+      <section id="editView" hidden>
+        <div class="admin-bar">
+          <h1 class="admin-title" id="editTitle">Nuevo artículo</h1>
+          <button class="btn btn-ghost" id="backBtn" type="button">← Volver al listado</button>
+        </div>
+
+        <form id="postForm" class="admin-editor">
+          <div class="admin-card">
+            <div class="form-group">
+              <label for="fTitle">Título</label>
+              <input class="form-control" id="fTitle" maxlength="150" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fCategory">Categoría</label>
+                <input class="form-control" id="fCategory" maxlength="60" placeholder="Ej: Estrategia" />
+              </div>
+              <div class="form-group">
+                <label for="fMinutes">Minutos de lectura</label>
+                <input class="form-control" id="fMinutes" type="number" min="1" max="120" value="3" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fAuthor">Autor</label>
+              <input class="form-control" id="fAuthor" maxlength="60" value="Equipo Prodytec" />
+            </div>
+            <div class="form-group">
+              <label for="fExcerpt">Resumen (se ve en la tarjeta del listado)</label>
+              <textarea class="form-control" id="fExcerpt" maxlength="300" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="fImage">Imagen de portada</label>
+              <input class="form-control" id="fImage" type="file" accept="image/jpeg,image/png,image/webp" />
+              <div class="admin-image" id="imagePreview" hidden>
+                <img alt="Vista previa" id="imageImg" />
+                <button type="button" class="btn btn-ghost" id="removeImage">Quitar imagen</button>
+              </div>
+              <p class="form-note">Sin imagen se usa el degradado de la marca. Se achica automáticamente antes de subirla.</p>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="form-group">
+              <label for="fBody">Contenido</label>
+              <textarea class="form-control admin-body" id="fBody" rows="16" required></textarea>
+              <p class="form-note">
+                Separá los párrafos con una línea en blanco. <code>## Título</code> para un subtítulo,
+                <code>- ítem</code> para listas (una línea por ítem), <code>&gt; texto</code> para una cita.
+              </p>
+            </div>
+            <details class="admin-preview">
+              <summary>Vista previa del contenido</summary>
+              <div class="article-body" id="bodyPreview"></div>
+            </details>
+          </div>
+
+          <div class="form-feedback" id="editFeedback"></div>
+          <div class="admin-actions">
+            <button class="btn btn-primary" type="submit" id="saveBtn">Guardar y publicar</button>
+            <button class="btn btn-ghost" type="button" id="cancelBtn">Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/blog.js"></script>
+  <script src="/assets/js/admin.js"></script>
+</body>
+</html>
