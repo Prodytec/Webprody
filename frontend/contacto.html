@@ -35,30 +35,6 @@
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="contact-layout">
-          <div class="contact-info reveal">
-            <div class="card" style="margin-bottom: var(--space-5);">
-              <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <h3>Oficina</h3>
-              <p>Pasaje del Carmen 750, Piso 6 Of. A<br>CABA (1019), Argentina</p>
-            </div>
-            <div class="card" style="margin-bottom: var(--space-5);">
-              <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2Z"/></svg>
-              </div>
-              <h3>Teléfono y WhatsApp</h3>
-              <p><a href="tel:+541152630244">+54 11 5263-0244</a><br><a href="https://wa.me/5491134858418" target="_blank" rel="noopener">Escribir por WhatsApp</a></p>
-            </div>
-            <div class="card">
-              <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/></svg>
-              </div>
-              <h3>Email</h3>
-              <p><a href="mailto:consultas@prodytec.com">consultas@prodytec.com</a></p>
-            </div>
-          </div>
-
           <div class="contact-form-wrap reveal">
             <form id="contactForm" novalidate>
               <div class="form-row">
@@ -104,10 +80,35 @@
                 <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
               </div>
 
+              <div class="contact-captcha" id="contactCaptcha"></div>
               <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar mensaje</button>
               <p class="form-note">Al enviar este formulario aceptás que te contactemos por email o teléfono.</p>
               <div class="form-feedback"></div>
             </form>
+          </div>
+
+          <div class="contact-info reveal">
+            <div class="card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3>Oficina</h3>
+              <p>Pasaje del Carmen 750<br>CABA (1019), Argentina</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2Z"/></svg>
+              </div>
+              <h3>Teléfono</h3>
+              <p><a href="tel:+541152630244">+54 11 5263-0244</a></p>
+            </div>
+            <div class="card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/></svg>
+              </div>
+              <h3>Email</h3>
+              <p><a href="mailto:consultas@prodytec.com">consultas@prodytec.com</a></p>
+            </div>
           </div>
         </div>
       </div>
@@ -120,6 +121,7 @@
   </button>
 
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/captcha.js"></script>
   <script src="/assets/js/contact-form.js"></script>
 </body>
 </html>

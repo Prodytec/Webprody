@@ -21,13 +21,21 @@ async function setup() {
     ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
   `);
 
+  // Orden manual del listado (menor = más arriba). Migra tablas creadas antes de esta columna.
+  const [cols] = await pool.query("SHOW COLUMNS FROM posts LIKE 'sort_order'");
+  if (!cols.length) {
+    await pool.query('ALTER TABLE posts ADD COLUMN sort_order INT NOT NULL DEFAULT 0');
+    await pool.query('SET @n := 0');
+    await pool.query('UPDATE posts SET sort_order = (@n := @n + 1) ORDER BY created_at DESC');
+  }
+
   // Los artículos originales se cargan una sola vez, cuando la tabla está vacía.
   const [[{ total }]] = await pool.query('SELECT COUNT(*) AS total FROM posts');
   if (total === 0) {
     for (const p of seed) {
       await pool.query(
-        'INSERT INTO posts (id, slug, title, category, minutes, excerpt, body, image, author, created_at) VALUES (?,?,?,?,?,?,?,?,?,?)',
-        [p.id, p.slug, p.title, p.category, p.minutes, p.excerpt, p.body, p.image, p.author, new Date(p.date)]
+        'INSERT INTO posts (id, slug, title, category, minutes, excerpt, body, image, author, created_at, sort_order) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
+        [p.id, p.slug, p.title, p.category, p.minutes, p.excerpt, p.body, p.image, p.author, new Date(p.date), seed.indexOf(p) + 1]
       );
     }
     logger.info('Blog: artículos iniciales cargados en la base de datos.');

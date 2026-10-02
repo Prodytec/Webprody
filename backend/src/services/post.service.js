@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const repo = require('../repositories/post.repository');
 const { saveImage, deleteImage } = require('./image.service');
+const { sanitizeBody, hasContent, uploadRefs } = require('./html.service');
 
 const fail = (status, message) => Object.assign(new Error(message), { status, publicMessage: message });
 
@@ -22,7 +23,7 @@ async function uniqueSlug(title, ownId) {
 
 function clean(input) {
   const title = String(input.title || '').trim();
-  const body = String(input.body || '').trim();
+  const body = sanitizeBody(input.body).trim();
   const category = String(input.category || '').trim() || 'General';
   const excerpt = String(input.excerpt || '').trim();
   const minutes = Math.min(Math.max(parseInt(input.minutes, 10) || 3, 1), 120);
@@ -30,7 +31,7 @@ function clean(input) {
 
   if (!title) throw fail(400, 'El título es obligatorio.');
   if (title.length > 150) throw fail(400, 'El título es muy largo (máximo 150 caracteres).');
-  if (!body) throw fail(400, 'El contenido es obligatorio.');
+  if (!hasContent(body)) throw fail(400, 'El contenido es obligatorio.');
   if (category.length > 60) throw fail(400, 'La categoría es muy larga.');
   if (excerpt.length > 300) throw fail(400, 'El resumen es muy largo (máximo 300 caracteres).');
   return { title, body, category, excerpt, minutes, author };
@@ -42,6 +43,14 @@ async function getBySlug(slug) {
   const post = await repo.findBySlug(slug);
   if (!post) throw fail(404, 'Artículo no encontrado.');
   return post;
+}
+
+// Borra los archivos subidos que ya no usa ningún artículo.
+async function releaseMedia(oldBody) {
+  const refs = uploadRefs(oldBody);
+  if (!refs.length) return;
+  const inUse = (await repo.findAll()).map((p) => `${p.body} ${p.image || ''}`).join(' ');
+  await Promise.all(refs.filter((r) => !inUse.includes(r)).map(deleteImage));
 }
 
 async function create(input) {
@@ -62,6 +71,7 @@ async function update(id, input) {
   const slug = current.title === data.title ? current.slug : await uniqueSlug(data.title, id);
   const updated = await repo.update(id, { ...data, slug, image });
   if (image !== current.image) await deleteImage(current.image);
+  await releaseMedia(current.body);
   return updated;
 }
 
@@ -70,6 +80,15 @@ async function remove(id) {
   if (!current) throw fail(404, 'Artículo no encontrado.');
   await repo.remove(id);
   await deleteImage(current.image);
+  await releaseMedia(current.body);
 }
 
-module.exports = { list, getBySlug, create, update, remove };
+async function reorder(ids) {
+  if (!Array.isArray(ids) || !ids.length) throw fail(400, 'Orden inválido.');
+  const existing = (await repo.findAll()).map((p) => p.id);
+  const valid = ids.length === existing.length && new Set(ids).size === ids.length && ids.every((id) => existing.includes(id));
+  if (!valid) throw fail(400, 'La lista cambió; recargá e intentá de nuevo.');
+  await repo.reorder(ids);
+}
+
+module.exports = { list, getBySlug, create, update, remove, reorder };

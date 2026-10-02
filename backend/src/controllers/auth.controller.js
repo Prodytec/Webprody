@@ -7,11 +7,11 @@ function status(req, res) {
 }
 
 function login(req, res) {
-  const { user, password } = req.body || {};
+  const { user, password, remember } = req.body || {};
   if (!checkCredentials(user, password)) {
     return res.status(401).json({ message: 'Usuario o contraseña incorrectos.' });
   }
-  startSession(req, res, user);
+  startSession(req, res, user, remember === true);
   res.json({ authenticated: true, user });
 }
 

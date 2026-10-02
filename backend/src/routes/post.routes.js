@@ -7,6 +7,7 @@ const router = Router();
 // Lectura pública; escritura solo con sesión de admin.
 router.get('/', ctrl.list);
 router.post('/', requireAdmin, ctrl.create);
+router.post('/order', requireAdmin, ctrl.reorder);
 router.put('/', requireAdmin, ctrl.update);
 router.delete('/', requireAdmin, ctrl.remove);
 

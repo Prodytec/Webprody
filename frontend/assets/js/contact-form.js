@@ -22,11 +22,20 @@
     const form = document.getElementById('contactForm');
     if (!form) return;
 
+    const captchaReady = Captcha.mount(document.getElementById('contactCaptcha'));
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      const captcha = await captchaReady;
+      if (!captcha.token()) {
+        showFeedback(form, 'error', 'Completá la verificación anti-bots antes de enviar.');
+        return;
+      }
       setLoading(form, true);
 
       const payload = Object.fromEntries(new FormData(form).entries());
+      delete payload['cf-turnstile-response'];
+      payload.captchaToken = captcha.token();
 
       try {
         const res = await fetch('/api/contact', {
@@ -46,6 +55,7 @@
       } catch (err) {
         showFeedback(form, 'error', err.message || 'Ocurrió un error. Probá nuevamente o escribinos por WhatsApp.');
       } finally {
+        captcha.reset(); // cada token sirve una sola vez
         setLoading(form, false);
       }
     });

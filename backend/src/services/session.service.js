@@ -3,6 +3,7 @@ const { secret } = require('../config/auth');
 
 const COOKIE = 'prody_admin';
 const SESSION_HOURS = 12;
+const REMEMBER_DAYS = 30;
 
 const sign = (payload) => crypto.createHmac('sha256', secret).update(payload).digest('base64url');
 
@@ -26,9 +27,10 @@ function cookie(req, value, maxAgeSeconds) {
   return `${COOKIE}=${value}; HttpOnly; SameSite=Strict; Path=/; Max-Age=${maxAgeSeconds}${secure}`;
 }
 
-function startSession(req, res, user) {
-  const payload = Buffer.from(JSON.stringify({ u: user, exp: Date.now() + SESSION_HOURS * 3600 * 1000 })).toString('base64url');
-  res.setHeader('Set-Cookie', cookie(req, `${payload}.${sign(payload)}`, SESSION_HOURS * 3600));
+function startSession(req, res, user, remember = false) {
+  const seconds = (remember ? REMEMBER_DAYS * 24 : SESSION_HOURS) * 3600;
+  const payload = Buffer.from(JSON.stringify({ u: user, exp: Date.now() + seconds * 1000 })).toString('base64url');
+  res.setHeader('Set-Cookie', cookie(req, `${payload}.${sign(payload)}`, seconds));
 }
 
 const endSession = (req, res) => res.setHeader('Set-Cookie', cookie(req, '', 0));

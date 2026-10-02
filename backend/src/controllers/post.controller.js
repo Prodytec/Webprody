@@ -9,6 +9,10 @@ module.exports = {
   }),
   create: wrap(async (req, res) => res.status(201).json(await service.create(req.body || {}))),
   update: wrap(async (req, res) => res.json(await service.update((req.body || {}).id, req.body || {}))),
+  reorder: wrap(async (req, res) => {
+    await service.reorder((req.body || {}).ids);
+    res.json({ ok: true });
+  }),
   remove: wrap(async (req, res) => {
     await service.remove(req.query.id);
     res.json({ ok: true });

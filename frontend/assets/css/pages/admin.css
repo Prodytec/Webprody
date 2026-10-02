@@ -103,6 +103,29 @@
   line-height: 1.6;
 }
 
+.admin-remember {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  cursor: pointer;
+}
+
+.admin-remember input {
+  margin-top: 0.3rem;
+}
+
+.admin-remember small {
+  display: block;
+  color: var(--color-text-faint);
+}
+
+.admin-captcha,
+.contact-captcha {
+  margin-bottom: var(--space-4);
+  min-height: 65px;
+}
+
 .admin-image {
   display: flex;
   align-items: center;
@@ -137,4 +160,92 @@
   .admin-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* Editor de texto enriquecido */
+.rte {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.rte-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.rte-btn,
+.rte-select {
+  font: inherit;
+  font-size: var(--fs-sm);
+  min-height: 2rem;
+  padding: 0 0.6rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.rte-select {
+  border-color: var(--color-border);
+  background: #fff;
+}
+
+.rte-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rte-btn:hover {
+  background: #fff;
+  border-color: var(--color-border);
+}
+
+.rte-color {
+  position: relative;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.rte-color input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rte-sep {
+  width: 1px;
+  height: 1.4rem;
+  background: var(--color-border);
+  margin: 0 var(--space-1);
+}
+
+.rte-area {
+  max-width: none;
+  min-height: 360px;
+  padding: var(--space-5);
+  outline: none;
+}
+
+.rte-area:empty::before {
+  content: attr(data-placeholder);
+  color: var(--color-text-faint);
+}
+
+.rte-area iframe {
+  pointer-events: none;
 }

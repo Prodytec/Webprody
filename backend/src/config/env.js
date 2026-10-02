@@ -12,6 +12,11 @@ const env = {
     pass: process.env.SMTP_PASS || '',
     from: process.env.SMTP_FROM || process.env.SMTP_USER || '',
   },
+  // Cloudflare Turnstile (captcha). Sin claves, en desarrollo se usan las claves de prueba de Cloudflare (siempre aprueban).
+  turnstile: {
+    siteKey: process.env.TURNSTILE_SITE_KEY || '',
+    secret: process.env.TURNSTILE_SECRET_KEY || '',
+  },
   db: {
     host: process.env.DB_HOST || 'localhost',
     port: Number(process.env.DB_PORT) || 3306,

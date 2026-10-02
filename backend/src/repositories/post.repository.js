@@ -21,7 +21,7 @@ async function query(sql, params) {
   return rows;
 }
 
-const findAll = async () => (await query('SELECT * FROM posts ORDER BY created_at DESC')).map(toPost);
+const findAll = async () => (await query('SELECT * FROM posts ORDER BY sort_order ASC, created_at DESC')).map(toPost);
 
 async function findBySlug(slug) {
   const rows = await query('SELECT * FROM posts WHERE slug = ?', [slug]);
@@ -40,7 +40,9 @@ async function slugExists(slug, ignoreId) {
 
 async function insert(p) {
   await query(
-    'INSERT INTO posts (id, slug, title, category, minutes, excerpt, body, image, author, created_at) VALUES (?,?,?,?,?,?,?,?,?,NOW())',
+    // El artículo nuevo queda primero: sort_order = (mínimo actual) - 1.
+    'INSERT INTO posts (id, slug, title, category, minutes, excerpt, body, image, author, created_at, sort_order) ' +
+      'SELECT ?,?,?,?,?,?,?,?,?,NOW(), COALESCE(MIN(sort_order), 1) - 1 FROM posts',
     [p.id, p.slug, p.title, p.category, p.minutes, p.excerpt, p.body, p.image, p.author]
   );
   return findById(p.id);
@@ -54,6 +56,21 @@ async function update(id, p) {
   return findById(id);
 }
 
+async function reorder(ids) {
+  await ensureSchema();
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+    for (let i = 0; i < ids.length; i++) await conn.query('UPDATE posts SET sort_order = ? WHERE id = ?', [i + 1, ids[i]]);
+    await conn.commit();
+  } catch (err) {
+    await conn.rollback();
+    throw err;
+  } finally {
+    conn.release();
+  }
+}
+
 const remove = (id) => query('DELETE FROM posts WHERE id = ?', [id]);
 
-module.exports = { findAll, findBySlug, findById, slugExists, insert, update, remove };
+module.exports = { findAll, findBySlug, findById, slugExists, insert, update, remove, reorder };

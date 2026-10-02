@@ -25,6 +25,10 @@ const BlogRender = (function () {
       .join('\n');
   }
 
+  // Los artículos nuevos se guardan como HTML (saneado en el servidor); los antiguos, como texto con marcas.
+  const isHtml = (text) => /<(p|h[2-4]|ul|ol|blockquote|div|img|video|audio|iframe|br)\b/i.test(text);
+  const renderBody = (text) => (isHtml(text) ? String(text) : bodyToHtml(text));
+
   const coverStyle = (post) => (post.image ? `style="background-image:url('${esc(post.image)}')"` : '');
 
   async function fetchJson(url) {
@@ -43,9 +47,10 @@ const BlogRender = (function () {
         container.innerHTML = '<p class="blog-empty">Todavía no hay artículos publicados.</p>';
         return;
       }
-      container.innerHTML = posts
-        .map(
-          (p) => `
+      const draw = (list) => {
+        container.innerHTML = list
+          .map(
+            (p) => `
         <article class="blog-card is-visible">
           <div class="blog-thumb ${p.image ? 'has-image' : ''}" ${coverStyle(p)}></div>
           <div class="blog-content">
@@ -55,8 +60,33 @@ const BlogRender = (function () {
             <a href="/articulo.html?slug=${encodeURIComponent(p.slug)}" class="read-more">Leer más ${ARROW}</a>
           </div>
         </article>`
-        )
+          )
+          .join('');
+      };
+
+      const filters = document.getElementById('blogFilters');
+      const categories = [...new Set(posts.map((p) => p.category).filter(Boolean))].sort((a, b) =>
+        a.localeCompare(b, 'es')
+      );
+      if (!filters || categories.length < 2) return draw(posts);
+
+      const buttons = ['Todos', ...categories]
+        .map((c, i) => `<button type="button" class="blog-filter${i ? '' : ' is-active'}" data-category="${i ? esc(c) : ''}" aria-pressed="${i ? 'false' : 'true'}">${esc(c)}</button>`)
         .join('');
+      filters.innerHTML = buttons;
+      filters.hidden = false;
+      filters.addEventListener('click', (e) => {
+        const btn = e.target.closest('.blog-filter');
+        if (!btn) return;
+        filters.querySelectorAll('.blog-filter').forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+        const cat = btn.dataset.category;
+        draw(cat ? posts.filter((p) => p.category === cat) : posts);
+      });
+      draw(posts);
     } catch {
       container.innerHTML = '<p class="blog-empty">No pudimos cargar los artículos. Probá de nuevo en unos minutos.</p>';
     }
@@ -83,7 +113,7 @@ const BlogRender = (function () {
         </section>
         <section class="section">
           <div class="container">
-            <div class="article-body">${bodyToHtml(p.body)}</div>
+            <div class="article-body">${renderBody(p.body)}</div>
             <div class="article-footer-nav">
               <a href="/blog.html" class="btn btn-ghost">← Volver al blog</a>
               <a href="/contacto.html" class="btn btn-primary">Hablar con un especialista</a>
@@ -102,7 +132,7 @@ const BlogRender = (function () {
     }
   }
 
-  return { bodyToHtml, esc, renderList, renderArticle };
+  return { bodyToHtml, renderBody, esc, renderList, renderArticle };
 })();
 
 document.addEventListener('DOMContentLoaded', () => {

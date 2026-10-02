@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const rateLimit = require('express-rate-limit');
 const { status, login, logout } = require('../controllers/auth.controller');
+const { requireCaptcha } = require('../middlewares/captcha');
 
 const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -13,7 +14,7 @@ const loginLimiter = rateLimit({
 const router = Router();
 
 router.get('/', status);
-router.post('/', loginLimiter, login);
+router.post('/', loginLimiter, requireCaptcha, login);
 router.delete('/', logout);
 
 module.exports = router;
