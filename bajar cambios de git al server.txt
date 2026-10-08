@@ -1,0 +1,17 @@
+2. En Webmin o Virtualmin, abrir la terminal. Es el icono >_ de la barra del File Manager. Si entrás como root, pasá a prodytec para que los archivos sigan siendo de ese usuario:
+
+
+su - prodytec
+whoami        # tiene que decir "prodytec"
+3. Bajar el código:
+
+
+cd /home/prodytec/app
+git pull origin main
+Para este cambio, que es solo HTML estático, no hace falta npm install. Solo se corre en backend si cambiaron dependencias.
+
+4. Reiniciar la app. En esa sesión era pm2 y la app se llama prodytec. Con HTML estático probablemente no haga falta reiniciar, pero no cuesta:
+
+
+pm2 restart prodytec --update-env
+pm2 logs prodytec --lines 20 --nostream
